@@ -1,0 +1,91 @@
+.container{
+	max-width: 960px;
+}
+body{
+	background: #F6F6F6;
+	margin-bottom: 50px;
+	font-family: 'Open Sans', sans-serif;
+}
+label{
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333333;
+}
+.topo p {
+	background: #fff;
+	padding: 5px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: 300;
+	color: #333333;
+}
+.topo img{
+	width: 100%;
+}
+.site-seguro{
+	background: #fff;
+}
+.content{
+	margin-top: 20px;
+}
+.content img{
+	width: 100%;
+}
+.box-dados{
+	background: #fff;
+	padding: 20px;
+}
+.box-dados input, select{
+	margin-bottom: 10px;
+}
+.box-title {
+    background: #EEF2F4 !important;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #5D6F78;
+    font-size: 24px;
+}
+.bix-title h3{
+	margin: 0;
+}
+
+.card-wrapper {
+    margin: 20px 0 20px 0;
+}
+
+.jp-card-container {
+    width: 100% !important;
+}
+
+select#ExpiryDate_year {
+    margin: 24px 0 0 0;
+}
+
+#boleto ol{
+	padding: 20px;
+}
+
+#boleto ol li{
+	margin: 0 0 20px 0;
+}
+
+#boleto ol li:last-child{
+	margin-bottom: 0;
+}
+
+.has-error{
+	border: 2px solid #a94442;
+}
+
+.has-error:focus{
+	border-color: #a94442;
+}
+
+.cep-error-message{
+	color: #a94442;
+	font-weight: bold;
+	margin: 0;
+}
