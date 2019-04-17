@@ -1,0 +1,4 @@
+<?php
+	$monetizzeApiUrl = '';
+	$monetizzeApiKey = '';
+	$monetizzeCtk = '';

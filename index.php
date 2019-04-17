@@ -1,8 +1,11 @@
 <?php
+   include_once __DIR__.DIRECTORY_SEPARATOR.'config.php';
+
    function chaveUnica(){
         return md5(uniqid(rand(), true));
     }
     $fingerprint = chaveUnica();
+    $referencia = 'KVM2';
 ?>
 <!DOCTYPE html>
 <html lang="">
@@ -12,7 +15,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Checkout</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-      <script type="text/javascript" src="https://alpha.monetizze.com.br/checkout/transparente/js?ctk=b6p4zNiGXJaCSUCA3uZgUixRBsNzpooQ&referencia=PZA34484"></script>
+      <script type="text/javascript" src="<?php echo $monetizzeApiUrl; ?>checkout/transparente/js?ctk=<?php echo $monetizzeCtk; ?>&referencia=<?php echo $referencia; ?>"></script>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="css/custom.css">
    </head>
@@ -160,6 +163,13 @@
             </div>
          </div>
       </div>
+      <script>
+         window.monetizzeApiData = <?php echo json_encode(array(
+            'url' => $monetizzeApiUrl,
+            'ctk' => $monetizzeCtk,
+            'ref' => $referencia
+         )); ?>;
+      </script>
       <script type="text/javascript" src="//s3.amazonaws.com/alphamonetizze/js/jquery.min.js"></script>
       <script src="js/jquery.min.js"></script>
       <script src="js/bootstrap.min.js"></script>

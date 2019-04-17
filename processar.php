@@ -1,12 +1,14 @@
 <?php
-	$url = 'https://alpha.monetizze.com.br/checkout/transparente/processar';
-	$key = 'c1dhKqfIpIJozgq2oLPKjw0wWVQfi733qozTE8Md2W5r06oK';
+    include_once __DIR__.DIRECTORY_SEPARATOR.'config.php';
+
+	$url = $monetizzeApiUrl.'checkout/transparente/processar';
+    $key = $monetizzeApiKey;
 
 
 	$dados = array();
-	$dados['referencia'] = 'PZA34484';
+	$dados['referencia'] = $_POST['referencia'];
 	$dados['chave_checkout'] = $_POST['chave_checkout'];
-
+    $dados['fingerprint'] = $_POST['fingerprint'];
 	$dados['meio_pagamento'] = $_POST['meio_pagamento'];
 
 
@@ -24,6 +26,10 @@
     $dados['bandCartao'] = $_POST['bandCartao'];
     $dados['parcelamento'] = $_POST['parcelamento'];
             
+
+
+
+
     $header = array();
     $header[] = 'Content-Type: application/json';
     $header[] = 'Api-Key: ' . $key ; 
@@ -35,7 +41,7 @@
 
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, POST);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 	curl_setopt($ch, CURLOPT_POSTFIELDS,$data_string);  
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);

@@ -39,7 +39,8 @@ $('#ajax-comprar').on('submit', function(e) {
     if($('#meio_pagamento_cartao').is(':checked')) { meio_pagamento = 'cartao'; }
     if($('#meio_pagamento_boleto').is(':checked')) { meio_pagamento = 'boleto'; }
     var dados = {
-        //chave_checkout: chave_checkout,
+        referencia: window.monetizzeApiData.ref,
+        chave_checkout: chave_checkout,
         fingerprint: fingerprint,
         meio_pagamento: meio_pagamento,
         nome: $('#nome').val(),
@@ -61,11 +62,12 @@ $('#ajax-comprar').on('submit', function(e) {
         parcelamento: $('#parcelamento').val(),
         bandCartao: $('#bandCartao').val(),
     }
-    console.log(dados);
+    alert('Alterar URL do processar.php !! (Linha 70) checkout.js');
+    return;
     $.ajax({
         type: "POST",
         async: "true",
-        url: "http://localhost:3000/processar.php",
+        url: "/processar.php",
         data: dados,
         dataType: "json"
     }).done(function(dados) {
@@ -118,8 +120,8 @@ $(document).ready(function() {
     $.ajax({     
         type: "POST",
              async: "true",
-             url: "https://alpha.monetizze.com.br/checkout/transparente/parcelamento",
-             data: "ctk=b6p4zNiGXJaCSUCA3uZgUixRBsNzpooQ&referencia=PZA34484&valor=1000.00&maxParcelas=12",
+             url: window.monetizzeApiData.url+"checkout/transparente/parcelamento",
+             data: "ctk="+window.monetizzeApiData.ctk+"&referencia="+window.monetizzeApiData.ref+"&valor=1000.00&maxParcelas=12",
              dataType: "json"    
     }).done(function(dados) {
         if (dados.status == 1) {    
